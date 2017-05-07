@@ -59,7 +59,7 @@ None of the above come close to describing my views.
 8. If an individual lives in poverty, it's because:
 s/he's lazy.
 of a complex web of circumstances, some of which are in her control and some of which aren't.
-the American Dream of social mobility is a lie.
+the American Dream of social mobility is a fallacy.
 None of the above come close to describing my views.
 
 9. Labor Unions:
