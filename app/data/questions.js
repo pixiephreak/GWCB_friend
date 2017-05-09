@@ -1,3 +1,24 @@
+var friends = [];
+
+var Friend = function(name, photo){
+  this.name = name;
+  this.photo = photo;
+  this.scores = [];
+  if (!(this instanceof Friend)) {
+    return new Friend(front, back);
+  }
+};
+
+Friend.prototype.totalScore = function(){};
+
+var Question = function(question, score, answers){
+  this.question = question;
+  this.answers  = answers;
+  this.onclick = function(){
+    console.log(this);
+  };
+};
+
 var questions = [{
   "question": "Are you registered with a political party or would you be if you had the right to vote in the U.S.?",
   "answers": [
@@ -6,11 +27,11 @@ var questions = [{
       "score": 1
     },
     {
-      "answer": "Yes, I'm a democrat",
+      "answer": "Yes, I'm a Democrat",
       "score": 2
     },
     {
-      "answer": "Yes,I'm a third party voter",
+      "answer": "Yes, I'm a third party voter",
       "score": 0
     },
     {
@@ -18,7 +39,7 @@ var questions = [{
       "score": 3
     },
     {
-      "answer": "None of these anwers reflect my point of view",
+      "answer": "None of these answers reflect my point of view",
       "score": 0
     }
   ]
@@ -38,12 +59,12 @@ var questions = [{
       "score": 3
     },
     {
-      "answer": "None of these anwers reflect my point of view",
+      "answer": "None of these answers reflect my point of view",
       "score": 0
     }
   ]
 },{
-  "question": "You think that any nation's border's:",
+  "question": "You think that any nation's borders:",
   "answers": [
     {
       "answer": "should be closed to all immigrants and refugees.",
@@ -58,7 +79,7 @@ var questions = [{
       "score": 3
     },
     {
-      "answer": "None of these anwers reflect my point of view",
+      "answer": "None of these answers reflect my point of view",
       "score": 0
     }
   ]
@@ -78,7 +99,7 @@ var questions = [{
       "score": 1
     },
     {
-      "answer": "None of these anwers reflect my point of view",
+      "answer": "None of these answers reflect my point of view",
       "score": 0
     }
   ]
@@ -98,12 +119,12 @@ var questions = [{
       "score": 1
     },
     {
-      "answer": "None of these anwers reflect my point of view",
+      "answer": "None of these answers reflect my point of view",
       "score": 0
     }
   ]
 },{
-  "question": "Scientific research",
+  "question": "Scientific research:",
   "answers": [
     {
       "answer": "proves that the climate is warming as a direct result of human activities.",
@@ -125,7 +146,7 @@ var questions = [{
           "score": 1
         },
     {
-      "answer": "None of these anwers reflect my point of view",
+      "answer": "None of these answers reflect my point of view",
       "score": 0
     }
   ]
@@ -141,31 +162,11 @@ var questions = [{
       "score": 2
     },
     {
-      "answer": "is innatural and wrong",
+      "answer": "is unnatural and wrong",
       "score": 1
     },
     {
-      "answer": "None of these anwers reflect my point of view",
-      "score": 0
-    }
-  ]
-},{
-  "question": "The right to determine and express one's own gender identity:",
-  "answers": [
-    {
-      "answer": "is fundamental and should be respected, protected and embraced by others.",
-      "score": 3
-    },
-    {
-      "answer": "is up to the individual, but protecting it shouldn't be a priority for lawmakers.",
-      "score": 2
-    },
-    {
-      "answer": "is innatural and wrong",
-      "score": 1
-    },
-    {
-      "answer": "None of these anwers reflect my point of view",
+      "answer": "None of these answers reflect my point of view",
       "score": 0
     }
   ]
@@ -185,7 +186,7 @@ var questions = [{
       "score": 3
     },
     {
-      "answer": "None of these anwers reflect my point of view",
+      "answer": "None of these answers reflect my point of view",
       "score": 0
     }
   ]
@@ -205,27 +206,7 @@ var questions = [{
       "score": 2
     },
     {
-      "answer": "None of these anwers reflect my point of view",
-      "score": 0
-    }
-  ]
-},{
-  "question": " Labor Unions:",
-  "answers": [
-    {
-      "answer": "protect worker's rights to safe conditions and access to fair pay.",
-      "score": 3
-    },
-    {
-      "answer": "severely limit companies' ability to be efficient and productive.",
-      "score": 1
-    },
-    {
-      "answer": "serve a purpose, but are often corrupt.",
-      "score": 2
-    },
-    {
-      "answer": "None of these anwers reflect my point of view",
+      "answer": "None of these answers reflect my point of view",
       "score": 0
     }
   ]
@@ -245,8 +226,14 @@ var questions = [{
       "score": 2
     },
     {
-      "answer": "None of these anwers reflect my point of view",
+      "answer": "None of these answers reflect my point of view",
       "score": 0
     }
   ]
 }];
+
+var questionsArr = [];
+
+questions.forEach(question => questionsArr.push(new Question(question.question, question.score, question.answers)));
+
+module.exports = questionsArr;

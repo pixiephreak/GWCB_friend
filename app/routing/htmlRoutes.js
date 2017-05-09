@@ -1,7 +1,7 @@
-app.get('/', function(req, res){
+var questions = require('../data/questions');
 
-});
-
-app.get('/survey', function(req, res){
-
-});
+module.exports = function(app){
+  app.get("/index", function(req, res) {
+      res.render('index', {ques: questions});
+  });
+};
