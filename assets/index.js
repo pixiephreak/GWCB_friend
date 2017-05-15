@@ -23,7 +23,7 @@ var Question = function(question, score, answers){
 var questionsArr = [];
 
 questions.forEach(question => questionsArr.push(new Question(question.question, question.score, question.answers)));
-console.log('questionsArr');
+questionsArr;
 
 $(".submit").on("click", function(event) {
       event.preventDefault();
@@ -43,7 +43,7 @@ $(".submit").on("click", function(event) {
       // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
       // depending on if a tables is available or not.
 
-      $.post("/api/tables", newReservation,
+      $.post("/api/friends", newReservation,
         function(data) {
 
           // If a table is available... tell user they are booked.
