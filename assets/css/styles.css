@@ -1,0 +1,8 @@
+body {
+  margin: 100px auto;
+}
+
+input {
+  display: block;
+  position: absolute;
+}

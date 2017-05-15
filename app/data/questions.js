@@ -212,4 +212,8 @@ var questions = [{
 	]
 }];
 
+var questionsArr = [];
+
+questions.forEach(question => questionsArr.push(new Question(question.question, question.score, question.answers)));
+
 module.exports = questions;

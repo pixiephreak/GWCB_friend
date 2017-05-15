@@ -13,10 +13,11 @@
 	<h1> "...judging people on their politics is entirely appropriate. Politics is a vehicle through which they wish to shape the world."  -- Joel D. Anderson</h1>
 
 	<h2>About You</h2>
-	<form action='/api/friends' method='POST'>
+	<form>
 		Name(Required): <input type="text" name="name" value="" placeholder="name"> Photo(Optional): <input type="text" name="name" value="" placeholder="link to a photo">
+		<div id='survey'></div>
+	 <button type="submit" class="btn btn-primary submit">Submit</button>
 	</form>
-	<div id='survey'></div>
 	<!-- <h2>Would you like to:</h2>
 			<form action='' method=''>
 				<input type="radio" name="gender" value="male" checked>find a friend who shares your politics<br>
@@ -26,6 +27,7 @@
 			</form> -->
 
 </body>
+
 <script type="text/javascript">
 
 var friends = [];
@@ -40,14 +42,6 @@ var Friend = function(name, photo){
 };
 
 Friend.prototype.totalScore = function(){};
-
-var Question = function(question, score, answers){
-	this.question = question;
-	this.answers  = answers;
-	this.onclick = function(){
-		console.log(this);
-	};
-};
 
 var questions = [{
 	"question": "Are you registered with a political party or would you be if you had the right to vote in the U.S.?",
@@ -262,29 +256,47 @@ var questions = [{
 	]
 }];
 
-
-var questionsArr = [];
-
-questions.forEach(question => questionsArr.push(new Question(question.question, question.score, question.answers)));
-questionsArr.forEach(function(question){
+// <form action="" method="post">
+//   <fieldset>
+//     <legend>Title</legend>
+//     <input type="radio" name="radio" id="radio">
+//     <label for="radio">Click me</label>
+//   </fieldset>
+// </form>
+//
+// create form
+// add attr
+// append to survey
+// create fieldset
+// append to form
+// 	create legend
+// 	create input
+// 	add attr type name id
+// 	create label
+// 	add attr for
+// 	append all to fieldset
 	var survey = document.getElementById('survey');
-	var newEl = document.createElement('div');
-	newEl.className = "survey-question";
-	newEl.innerHTML = question.question;
-	var answers = question.answers;
-	answers.forEach(function(answer){
-		var subEl = document.createElement('input');
-		subEl.setAttribute('type','radio');
-		subEl.className = 'survey-answer';
-		var label = document.createElement('label');
-		label.innerHTML = answer.answer;
-		subEl.appendChild(label);
-		console.log(subEl);
-		newEl.appendChild(subEl);
-		console.log(newEl);
+	questions.forEach(function(question){
+		var questionText = question.question;
+		var questionAnswers = question.answers;
+		var fieldset = document.createElement('fieldset');
+		question = document.createElement('p');
+		question.innerHTML = questionText;
+		fieldset.appendChild(question);
+		questionAnswers.forEach(function(question){
+			var input = document.createElement('input');
+			var label = document.createElement('label');
+			label.innerHTML = question.answer;
+			input.setAttribute("type", 'radio');
+			input.setAttribute("name", 'question');
+			input.setAttribute("id", 'question');
+			fieldset.appendChild(input);
+			fieldset.appendChild(label);
+		})
+		survey.appendChild(fieldset);
 	});
-	survey.appendChild(newEl);
-} );
+
+
 
 
 
