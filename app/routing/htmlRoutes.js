@@ -1,7 +1,27 @@
-var questions = require('../data/questions');
 
-module.exports = function(app){
+var path = require("path");
+
+//routing
+module.exports = function(app) {
+  // HTML GET Requests
+  // Below code handles when users "visit" a page.
+  // In each of the below cases the user is shown an HTML page of content
+  // ---------------------------------------------------------------------------
   app.get("/index", function(req, res) {
-      res.render('index', {ques: questions});
+    res.sendFile(path.join(__dirname, "/../public/index.html"));
   });
+
+  app.get("/results", function(req, res) {
+    res.sendFile(path.join(__dirname, "/../public/results.html"));
+  });
+
+  app.get("/results", function(req, res) {
+    res.sendFile(path.join(__dirname, "/../public/results.html"));
+  });
+
+  // If no matching route is found default to home
+  app.use(function(req, res) {
+    res.sendFile(path.join(__dirname, "/../public/index.html"));
+  });
+
 };

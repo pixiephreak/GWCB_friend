@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" content="text">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Friend Finder</title>
+	<script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<h1>Find a Friend</h1>
+	<h1> "...judging people on their politics is entirely appropriate. Politics is a vehicle through which they wish to shape the world."  -- Joel D. Anderson</h1>
+
+	<h2>About You</h2>
+	<form action='/api/friends' method='POST'>
+		Name(Required): <input type="text" name="name" value="" placeholder="name"> Photo(Optional): <input type="text" name="name" value="" placeholder="link to a photo">
+		<div id='survey'></div>
+			<button type="submit" class="submit">Submit</button>
+	</form>
+
+	<!-- <h2>Would you like to:</h2>
+			<form action='' method=''>
+				<input type="radio" name="gender" value="male" checked>find a friend who shares your politics<br>
+				<input type="radio" name="gender" value="female">find someone who shares some of your political attitudes, but differs on others<br>
+				<input type="radio" name="gender" value="other">find someone whose views differ significantly<br>
+				<button type="submit">Submit</button>
+			</form> -->
+
+</body>
+
+</html>
