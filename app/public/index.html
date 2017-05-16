@@ -13,7 +13,7 @@
 	<h1> "...judging people on their politics is entirely appropriate. Politics is a vehicle through which they wish to shape the world."  -- Joel D. Anderson</h1>
 
 	<h2>About You</h2>
-	<form action ="api/friends" method ='POST'>
+	<form>
 		Name(Required): <input type="text" name="name" value="" placeholder="name"> Photo(Optional): <input type="text" name="name" value="" placeholder="link to a photo">
 		<div id='survey'></div>
 	 <button type="submit" class="btn btn-primary submit" id="submit">Submit</button>
@@ -278,63 +278,28 @@ var questions = [{
 		survey.appendChild(fieldset);
 		count++
 	});
-//
-// document.getElementById('submit').onclick = function(){
-// 	$.ajax('/api/friends', {
-// 		crossDomain:true,
-// 		dataType: "jsonp",
-// 		success:function(){
-// 			app.post('/api/friends', function(req,res){
-// 		    console.log(res);
-// 		    friends.push(res.body);
-// 		    res.json(friends);
-// 		  });
-// 		}
-// });
-// }
+
+document.getElementById('submit').onclick = function(event){
+	event.preventDefault();
+	var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://localhost:3000/api/friends",
+  "method": "POST",
+	"dataType": "json",
+  "headers": {
+    "cache-control": "no-cache"
+  },
+  "data": JSON.stringify({test})
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+};
 
 
-
-
-
-
-    //function to get and show
-    function runTableQuery() {
-
-        // Here we get the location of the root page.
-        // We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
-        var currentURL = window.location.origin;
-
-        // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-        $.ajax({ url: currentURL + "/api/tables", method: "GET" })
-        .done(function(tableData) {
-
-          // Here we are logging the URL so we have access to it for troubleshooting
-          console.log("------------------------------------");
-          console.log("URL: " + currentURL + "/api/tables");
-          console.log("------------------------------------");
-
-          // Here we then log the NYTData to console, where it will show up as an object.
-          console.log(tableData);
-          console.log("------------------------------------");
-
-          // Loop through and display each of the customers
-          for (var i = 0; i < tableData.length; i++) {
-
-            // Create the HTML Well (Section) and Add the table content for each reserved table
-            var tableSection = $("<div>");
-            tableSection.addClass("well");
-            tableSection.attr("id", "tableWell-" + i + 1);
-            $("#tableSection").append(tableSection);
-
-            var tableNumber = i + 1;
-
-
-            // Then display the remaining fields in the HTML (Section Name, Date, URL)
-            $("#tableWell-" + i + 1).append("<h2><span class='label label-primary'>" + tableNumber + "</span> | " + tableData[i].customerID + "</h2>");
-          }
-        });
-      }
 
 
 </script>

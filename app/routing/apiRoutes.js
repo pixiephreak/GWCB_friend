@@ -6,9 +6,12 @@ module.exports = function(app){
   });
 
   app.post('/api/friends', function(req,res){
-    console.log(res);
-    friends.push(res.body);
-    res.json(friends);
+    // console.log(res.body);
+    // friends.push(res.body);
+    console.log(req.body);
+    // res.json(req);
     // res.redirect("/");
   });
 };
+
+//set content type? application/json ?
