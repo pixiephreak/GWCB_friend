@@ -13,7 +13,7 @@
 	<h1> "...judging people on their politics is entirely appropriate. Politics is a vehicle through which they wish to shape the world."  -- Joel D. Anderson</h1>
 
 	<h2>About You</h2>
-	<form>
+	<form action ="/api/friends" method =''>
 		Name(Required): <input type="text" name="name" value="" placeholder="name"> Photo(Optional): <input type="text" name="name" value="" placeholder="link to a photo">
 		<div id='survey'></div>
 	 <button type="submit" class="btn btn-primary submit">Submit</button>
@@ -256,26 +256,8 @@ var questions = [{
 	]
 }];
 
-// <form action="" method="post">
-//   <fieldset>
-//     <legend>Title</legend>
-//     <input type="radio" name="radio" id="radio">
-//     <label for="radio">Click me</label>
-//   </fieldset>
-// </form>
-//
-// create form
-// add attr
-// append to survey
-// create fieldset
-// append to form
-// 	create legend
-// 	create input
-// 	add attr type name id
-// 	create label
-// 	add attr for
-// 	append all to fieldset
 	var survey = document.getElementById('survey');
+	count = 1;
 	questions.forEach(function(question){
 		var questionText = question.question;
 		var questionAnswers = question.answers;
@@ -288,58 +270,27 @@ var questions = [{
 			var label = document.createElement('label');
 			label.innerHTML = question.answer;
 			input.setAttribute("type", 'radio');
-			input.setAttribute("name", 'question');
-			input.setAttribute("id", 'question');
+			input.setAttribute("name", 'answer'+count);
+			input.setAttribute("value", question.score);
 			fieldset.appendChild(input);
 			fieldset.appendChild(label);
 		})
 		survey.appendChild(fieldset);
+		count++
 	});
 
-
-
-
-
-$(".submit").on("click", function(event) {
-      event.preventDefault();
-
-      // Here we grab the form elements
-      var newReservation = {
-        customerName: $("#reserve-name").val().trim(),
-        phoneNumber: $("#reserve-phone").val().trim(),
-        customerEmail: $("#reserve-email").val().trim(),
-        customerID: $("#reserve-unique-id").val().trim()
-      };
-
-      console.log(newReservation);
-
-      // This line is the magic. It"s very similar to the standard ajax function we used.
-      // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-      // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-      // depending on if a tables is available or not.
-
-      $.post("/api/friends", newReservation,
-        function(data) {
-
-          // If a table is available... tell user they are booked.
-          if (data) {
-            alert("Yay! You are officially booked!");
-          }
-
-          // If a table is available... tell user they on the waiting list.
-          else {
-            alert("Sorry you are on the wait list");
-          }
-
-          // Clear the form when submitting
-          $("#reserve-name").val("");
-          $("#reserve-phone").val("");
-          $("#reserve-email").val("");
-          $("#reserve-unique-id").val("");
-
+	$.ajax(URL, {
+    crossDomain:true,
+    dataType: "jsonp",
+    success:function(data,text,xhqr){
+        $.each(data, function(i, item) {
+            alert(item);
         });
+    }
+});
 
-    });
+
+
 
     //function to get and show
     function runTableQuery() {
