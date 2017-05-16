@@ -13,10 +13,10 @@
 	<h1> "...judging people on their politics is entirely appropriate. Politics is a vehicle through which they wish to shape the world."  -- Joel D. Anderson</h1>
 
 	<h2>About You</h2>
-	<form action ="/api/friends" method =''>
+	<form action ="api/friends" method ='POST'>
 		Name(Required): <input type="text" name="name" value="" placeholder="name"> Photo(Optional): <input type="text" name="name" value="" placeholder="link to a photo">
 		<div id='survey'></div>
-	 <button type="submit" class="btn btn-primary submit">Submit</button>
+	 <button type="submit" class="btn btn-primary submit" id="submit">Submit</button>
 	</form>
 	<!-- <h2>Would you like to:</h2>
 			<form action='' method=''>
@@ -278,16 +278,22 @@ var questions = [{
 		survey.appendChild(fieldset);
 		count++
 	});
+//
+// document.getElementById('submit').onclick = function(){
+// 	$.ajax('/api/friends', {
+// 		crossDomain:true,
+// 		dataType: "jsonp",
+// 		success:function(){
+// 			app.post('/api/friends', function(req,res){
+// 		    console.log(res);
+// 		    friends.push(res.body);
+// 		    res.json(friends);
+// 		  });
+// 		}
+// });
+// }
 
-	$.ajax(URL, {
-    crossDomain:true,
-    dataType: "jsonp",
-    success:function(data,text,xhqr){
-        $.each(data, function(i, item) {
-            alert(item);
-        });
-    }
-});
+
 
 
 
