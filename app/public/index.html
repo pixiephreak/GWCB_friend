@@ -14,7 +14,7 @@
 
 	<h2>About You</h2>
 	<form>
-		Name(Required): <input type="text" name="name" value="" placeholder="name"> Photo(Optional): <input type="text" name="name" value="" placeholder="link to a photo">
+		Name(Required): <input type="text" name="name" placeholder="name"> Photo(Required): <input type="text" name="photo"  placeholder="link to a photo">
 		<div id='survey'></div>
 	 <button type="submit" class="btn btn-primary submit" id="submit">Submit</button>
 	</form>
@@ -29,19 +29,6 @@
 </body>
 
 <script type="text/javascript">
-
-var friends = [];
-
-var Friend = function(name, photo){
-	this.name = name;
-	this.photo = photo;
-	this.scores = [];
-	if (!(this instanceof Friend)) {
-		return new Friend(front, back);
-	}
-};
-
-Friend.prototype.totalScore = function(){};
 
 var questions = [{
 	"question": "Are you registered with a political party or would you be if you had the right to vote in the U.S.?",
@@ -256,6 +243,7 @@ var questions = [{
 	]
 }];
 
+//loop through questions and append them to the dom
 	var survey = document.getElementById('survey');
 	count = 1;
 	questions.forEach(function(question){
@@ -279,8 +267,45 @@ var questions = [{
 		count++
 	});
 
+	var Friend = function(name, photo, scores){
+		this.name = name;
+		this.photo = photo;
+		this.scores = scores;
+		if (!(this instanceof Friend)) {
+			return new Friend(name, photo, scores);
+		}
+	};
+
+	Friend.prototype.totalScore = function(){};
+
+//send scores to server on submit
 document.getElementById('submit').onclick = function(event){
 	event.preventDefault();
+	var name = document.querySelector('input[name=name]');
+	var photo = document.querySelector('input[photo=photo]');
+	console.log('name',name,'photo',photo);
+	var fieldsets = document.getElementsByTagName('fieldset');
+	var length = fieldsets.length + 1;
+	function storeScores(){
+	var scores = [];
+	for(let i =1; i< length; i++){
+		//confirm that all fields are completed
+		if(document.querySelector(`input[name = "answer${i}"]:checked`) != null){
+			//store scores in array
+			var score = document.querySelector(`input[name = "answer${i}"]:checked`).value;
+			scores.push(score);
+		}else{
+			alert("please complete all questions on the survey")
+			break;
+		}
+	}
+	return scores;
+}
+
+if (storeScores().length === 10){
+	newUser = new Friend(name, photo, storeScores());
+}
+
 	var settings = {
   "async": true,
   "crossDomain": true,
@@ -290,13 +315,17 @@ document.getElementById('submit').onclick = function(event){
   "headers": {
     "cache-control": "no-cache"
   },
-  "data": JSON.stringify({'test':'test'}),
+  "data": JSON.stringify(),
 	"contentType": "application/json; charset=utf-8"
+};
+
+if(newUser){
+	$.ajax(settings).done(function (response) {
+	  console.log(response);
+});
 }
 
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
+
 
 };
 
