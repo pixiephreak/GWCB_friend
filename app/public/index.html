@@ -14,7 +14,7 @@
 
 	<h2>About You</h2>
 	<form>
-		Name(Required): <input type="text" name="name" placeholder="name"> Photo(Required): <input type="text" name="photo"  placeholder="link to a photo">
+		Name(Required): <input type="text" name="name" placeholder="name" id ="name"> Photo(Optional): <input type="text" name="photo"  placeholder="link to a photo" id="photo">
 		<div id='survey'></div>
 	 <button type="submit" class="btn btn-primary submit" id="submit">Submit</button>
 	</form>
@@ -281,9 +281,8 @@ var questions = [{
 //send scores to server on submit
 document.getElementById('submit').onclick = function(event){
 	event.preventDefault();
-	var name = document.querySelector('input[name=name]');
-	var photo = document.querySelector('input[photo=photo]');
-	console.log('name',name,'photo',photo);
+	var name = document.getElementById('name').value;
+	var photo = document.getElementById('photo').value;
 	var fieldsets = document.getElementsByTagName('fieldset');
 	var length = fieldsets.length + 1;
 	function storeScores(){
@@ -315,7 +314,7 @@ if (storeScores().length === 10){
   "headers": {
     "cache-control": "no-cache"
   },
-  "data": JSON.stringify(),
+  "data": JSON.stringify(newUser),
 	"contentType": "application/json; charset=utf-8"
 };
 

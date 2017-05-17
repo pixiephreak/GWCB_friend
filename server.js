@@ -29,6 +29,13 @@ app.post("/api/friends", function(req,res){
   friends.push(req.body);
 });
 
+//dev: clear api
+app.post("/api/clear", function() {
+  // Empty out the arrays of data
+  friends = [];
+
+  console.log(friends);
+});
 
 
 // Initiate the listener.
