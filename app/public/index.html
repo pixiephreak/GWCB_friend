@@ -290,7 +290,8 @@ document.getElementById('submit').onclick = function(event){
   "headers": {
     "cache-control": "no-cache"
   },
-  "data": JSON.stringify({test})
+  "data": JSON.stringify({'test':'test'}),
+	"contentType": "application/json; charset=utf-8"
 }
 
 $.ajax(settings).done(function (response) {

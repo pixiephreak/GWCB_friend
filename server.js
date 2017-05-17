@@ -16,5 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
+app.post("/api/friends", function(req,res){
+  console.log(req);
+})
+
 // Initiate the listener.
 app.listen(port);
