@@ -10,8 +10,16 @@
 
 <body id='body'>
 	<h1>Find a Friend</h1>
-	<h1> "...judging people on their politics is entirely appropriate. Politics is a vehicle through which they wish to shape the world."  -- Joel D. Anderson</h1>
-
+	<h1> Thinkers such as Maya Angelou have noted that “ ... in diversity there is beauty and there is strength.”
+ 				However, more recently people like Joel D. Anderson have pointed out that "...judging people on their politics is entirely appropriate. Politics is a vehicle through which they wish to shape the world."
+	</h1>
+	<h2>Fill out the survey below to find a friend with similar or different political opinions</h2>
+	<h2>Would you like to:</h2>
+			<form action='' method=''>
+				<input type="radio" name="proximity" value="similar" checked>find a friend who shares your politics<br>
+				<input type="radio" name="proximity" value="somewhat-similar">find someone who shares some of your political attitudes, but differs on others<br>
+				<input type="radio" name="proximity" value="different">find someone whose views differ significantly<br>
+			</form>
 	<h2>About You</h2>
 	<form>
 		Name(Required): <input type="text" name="name" placeholder="name" id="name"> Photo(Optional): <input type="text" name="photo" placeholder="link to a photo" id="photo">
@@ -21,13 +29,7 @@
 		</div>
 		<button type="submit" class="btn btn-primary submit" id="submit">Submit</button>
 	</form>
-	<!-- <h2>Would you like to:</h2>
-			<form action='' method=''>
-				<input type="radio" name="gender" value="male" checked>find a friend who shares your politics<br>
-				<input type="radio" name="gender" value="female">find someone who shares some of your political attitudes, but differs on others<br>
-				<input type="radio" name="gender" value="other">find someone whose views differ significantly<br>
-				<button type="submit">Submit</button>
-			</form> -->
+
 </body>
 
 <script type="text/javascript">
@@ -259,10 +261,11 @@
 			count++
 		});
 
-		var Friend = function(name, photo, scores) {
+		var Friend = function(name, photo, scores, proximity) {
 			this.name = name;
 			this.photo = photo;
 			this.scores = scores;
+			this.proximity = proximity;
 			if (!(this instanceof Friend)) {
 				return new Friend(name, photo, scores);
 			}
@@ -295,8 +298,23 @@
 				return scores;
 			}
 
+			function storeProximity() {
+				var proximity;
+				for (let i = 1; i < length; i++) {
+					//confirm that all fields are completed
+					if (document.querySelector(`input[name = "proximity"]:checked`) != null) {
+						//store scores in array
+					proximity = document.querySelector(`input[name = "proximity"]:checked`).value;
+					} else {
+						alert("please choose your friend style")
+						break;
+					}
+				}
+				return proximity;
+			}
+
 			if (storeScores().length === 10) {
-				newUser = new Friend(name, photo, storeScores());
+				newUser = new Friend(name, photo, storeScores(), storeProximity());
 			}
 
 			var currentURL = window.location.origin;
@@ -322,7 +340,6 @@
 				elem.innerHTML = `Your Best Friend is: ${data.name}`;
 				document.getElementById('results').innerHTML = "";
 				document.getElementById('results').appendChild(elem);
-
 				console.log('appending'+ data.name);
 			};
 
