@@ -315,19 +315,20 @@
 			};
 
 			function append(data){
+				console.log(data);
 				var elem = document.createElement('h1');
 				elem.innerHTML = 'Results';
 				var results = document.createElement('p');
-				elem.innerHTML = data;
+				elem.innerHTML = `Your Best Friend is: ${data.name}`;
 				document.getElementById('results').innerHTML = "";
-				document.getElementById('results').appendChild(elem).appendChild(results);
+				document.getElementById('results').appendChild(elem);
 
-				console.log('appending')
+				console.log('appending'+ data.name);
 			};
 
 			if (newUser) {
 				$.ajax(settings).done(function(response) {
-					console.log(response);
+					// console.log(response);
 					append(response);
 				}).fail(function() {
 					alert("Sorry. Server unavailable. ");
