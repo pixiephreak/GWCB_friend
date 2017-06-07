@@ -12,6 +12,8 @@ var findProximity = function(arr,scores, evaluation){
     bestMatch.photo = arr[i].photo;
     bestMatch.friendDifference = totalDifference;
   }
+
+  // TODO fix algorithm
   for (var i = 0; i < arr.length; i++) {
     console.log(arr[i].name, arr[i].proximity);
     totalDifference = 0;
