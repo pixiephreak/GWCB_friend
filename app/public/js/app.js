@@ -73,12 +73,13 @@ $(document).ready(function() {
 
     function append(data) {
       console.log(data);
-      var elem = document.createElement('h1');
-      elem.innerHTML = 'Results';
+      var h2 = document.createElement('h2');
+      var pic = document.createElement('img');
+      pic.setAttribute('src', data.photo);
       var results = document.createElement('p');
-      elem.innerHTML = `Your Best Friend is: ${data.name}`;
-      document.getElementById('results').innerHTML = "";
-      document.getElementById('results').appendChild(elem);
+      h2.innerHTML = `Your Best Friend is: ${data.name}`;
+      document.getElementById('friend').appendChild(h2);
+      document.getElementById('photo').appendChild(pic);
       console.log('appending' + data.name);
     };
 
