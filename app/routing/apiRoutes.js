@@ -32,7 +32,7 @@ var findProximity = function(arr,scores, evaluation){
       }
 
       if(evaluation === 'somewhat-similar'){
-        if (totalDifference <= (bestMatch.friendDifference + 3)) {
+        if (totalDifference <= (bestMatch.friendDifference + 2)) {
           // Reset the bestMatch to be the new friend.
           update();
         }
