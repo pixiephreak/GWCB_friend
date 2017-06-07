@@ -1,5 +1,5 @@
+
 var friends = require('../data/friends');
-var questions = require('../public/js/questions');
 var bestMatch = {
   name: "xxx",
   photo: "xxx",

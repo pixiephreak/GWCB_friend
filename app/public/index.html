@@ -5,14 +5,20 @@
 	<meta charset="UTF-8" content="text">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Friend Finder</title>
-	<script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<!-- Compiled and minified CSS -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+ <!-- Compiled and minified JavaScript -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+ <link rel="stylesheet" href="css/styles.css">
+ <script src="js/questions.js" type="text/javascript"></script>
 </head>
 
-<body id='body'>
+<body id='body' class="card-panel #e1f5fe light-blue lighten-5">
 	<h1>Find a Friend</h1>
-	<h1> Thinkers such as Maya Angelou have noted that “ ... in diversity there is beauty and there is strength.”
+	<p> Thinkers such as Maya Angelou have noted that “ ... in diversity there is beauty and there is strength.”
  				However, more recently people like Joel D. Anderson have pointed out that "...judging people on their politics is entirely appropriate. Politics is a vehicle through which they wish to shape the world."
-	</h1>
+	</p>
 	<h2>Fill out the survey below to find a friend with similar or different political opinions</h2>
 	<h2>Would you like to:</h2>
 			<form action='' method=''>
@@ -250,12 +256,14 @@
 			questionAnswers.forEach(function(question) {
 				var input = document.createElement('input');
 				var label = document.createElement('label');
+				var br = document.createElement('br')
 				label.innerHTML = question.answer;
 				input.setAttribute("type", 'radio');
 				input.setAttribute("name", 'answer' + count);
 				input.setAttribute("value", question.score);
 				fieldset.appendChild(input);
 				fieldset.appendChild(label);
+				fieldset.appendChild(br)
 			})
 			survey.appendChild(fieldset);
 			count++
@@ -355,6 +363,6 @@
 		};
 	});
 </script>
-<!-- <script src="js/questions.js" type="text/javascript"></script> -->
+
 
 </html>

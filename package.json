@@ -10,9 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.0",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "materialize-css": "^0.98.2"
   },
   "engines": {
     "node": "5.3.0"
-  }
+  },
+  "devDependencies": {}
 }
