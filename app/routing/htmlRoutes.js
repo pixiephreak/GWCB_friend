@@ -1,7 +1,25 @@
-var questions = require('../data/questions');
+// ===============================================================================
+// DEPENDENCIES
+// ===============================================================================
+var path = require("path");
 
-module.exports = function(app){
-  app.get("/index", function(req, res) {
-      res.render('index', {ques: questions});
+// ===============================================================================
+// ROUTING
+// ===============================================================================
+
+module.exports = function(app) {
+
+  // app.get("/survey", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "index.html"));
+  // });
+
+  app.get("/", function(req, res) {
+    console.log('dirname', __dirname);
+    res.sendFile(path.join(__dirname, "/../public/index.html"));
   });
+  // // If no matching route is found default to home
+  // app.use(function(req, res) {
+  //   res.sendFile(path.join(__dirname, "/../public/index.html"));
+  // });
+
 };

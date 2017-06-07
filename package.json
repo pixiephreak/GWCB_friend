@@ -1,28 +1,20 @@
 {
-  "name": "friend-finder",
+  "name": "friendfinder",
   "version": "1.0.0",
-  "description": "match your personality",
+  "description": "",
   "main": "server.js",
-  "dependencies": {
-    "body-parser": "^1.17.1",
-    "express": "^4.15.2"
-  },
-  "devDependencies": {
-    "node-inspector": "^1.1.1",
-    "nodemon": "^1.11.0"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pixiephreak/GWCB_friend.git"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/pixiephreak/GWCB_friend/issues"
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "materialize-css": "^0.98.2"
   },
-  "homepage": "https://github.com/pixiephreak/GWCB_friend#readme"
+  "engines": {
+    "node": "5.3.0"
+  },
+  "devDependencies": {}
 }
