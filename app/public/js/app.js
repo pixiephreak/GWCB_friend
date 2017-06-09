@@ -72,6 +72,8 @@ $(document).ready(function() {
     };
 
     function append(data) {
+      document.getElementById('friend').appendChild(h2);
+      document.getElementById('friend-photo').appendChild(pic);
       console.log(data);
       var h2 = document.createElement('h2');
       var pic = document.createElement('img');
@@ -79,7 +81,7 @@ $(document).ready(function() {
       var results = document.createElement('p');
       h2.innerHTML = `Your Best Friend is: ${data.name}`;
       document.getElementById('friend').appendChild(h2);
-      document.getElementById('photo').appendChild(pic);
+      document.getElementById('friend-photo').appendChild(pic);
       console.log('appending' + data.name);
     };
 
