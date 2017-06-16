@@ -72,8 +72,8 @@ $(document).ready(function() {
     };
 
     function append(data) {
-      document.getElementById('friend').appendChild(h2);
-      document.getElementById('friend-photo').appendChild(pic);
+      $('#friend').empty();
+      $('#friend-photo').empty();
       console.log(data);
       var h2 = document.createElement('h2');
       var pic = document.createElement('img');
