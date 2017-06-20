@@ -44,6 +44,9 @@ h2 {
   margin-top: 1em;
 }
 
+#friend-photo img {
+  max-width: 300px;
+}
 /*radio button checked*/
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
   background-color: #fff;

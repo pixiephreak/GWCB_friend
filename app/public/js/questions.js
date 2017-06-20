@@ -121,10 +121,6 @@ var questions = [{
 				"answer": "shows a natural and expected pattern of warming and cooling.",
 				"score": 1
 			},
-			{
-					"answer": "shows a natural and expected pattern of warming and cooling.",
-					"score": 1
-				},
 		{
 			"answer": "None of these answers reflect my point of view",
 			"score": 0
