@@ -78,6 +78,7 @@ $(document).ready(function() {
       var h2 = document.createElement('h2');
       var pic = document.createElement('img');
       pic.setAttribute('src', data.photo);
+      pic.setAttribute('class', "responsive-img circle z-depth-5");
       var results = document.createElement('p');
       h2.innerHTML = `Your Best Friend is: ${data.name}`;
       document.getElementById('friend').appendChild(h2);
