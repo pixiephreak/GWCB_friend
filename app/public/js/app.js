@@ -1,10 +1,11 @@
 $(document).ready(function() {
-
+  var id = 0;
   var Friend = function(name, photo, scores, proximity) {
     this.name = name;
     this.photo = photo;
     this.scores = scores;
     this.proximity = proximity;
+    this.id = id;
     if (!(this instanceof Friend)) {
       return new Friend(name, photo, scores);
     }
@@ -53,7 +54,8 @@ $(document).ready(function() {
     }
 
     if (storeScores().length === 10) {
-      newUser = new Friend(name, photo, storeScores(), storeProximity());
+      newUser = new Friend(name, photo, storeScores(), storeProximity(), id);
+      id++;
     }
 
     var currentURL = window.location.origin;
