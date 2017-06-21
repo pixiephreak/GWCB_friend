@@ -30,6 +30,14 @@ h2 {
   font-size: 2em;
 }
 
+a {
+  color: #4caf50;
+}
+
+a:hover {
+  color: #ee6e73;
+}
+
 .btn {
   margin-top: 2em;
 }
