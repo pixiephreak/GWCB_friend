@@ -17,10 +17,6 @@ var questions = [{
 		{
 			"answer": "Democracy is broken, so I find other ways to take political action.",
 			"score": 3
-		},
-		{
-			"answer": "None of these answers reflect my point of view",
-			"score": 0
 		}
 	]
 },{
@@ -37,10 +33,6 @@ var questions = [{
 		{
 			"answer": "detest Donald Trump on political, ideological, and personal terms?",
 			"score": 3
-		},
-		{
-			"answer": "None of these answers reflect my point of view",
-			"score": 0
 		}
 	]
 },{
@@ -57,10 +49,6 @@ var questions = [{
 		{
 			"answer": "are imaginary constructs that should not factor into where how people move through their world.",
 			"score": 3
-		},
-		{
-			"answer": "None of these answers reflect my point of view",
-			"score": 0
 		}
 	]
 },{
@@ -77,10 +65,6 @@ var questions = [{
 		{
 			"answer": "Should not be allowed to make decisions about their bodies that could prevent or terminate pregnancy.",
 			"score": 1
-		},
-		{
-			"answer": "None of these answers reflect my point of view",
-			"score": 0
 		}
 	]
 },{
@@ -97,10 +81,6 @@ var questions = [{
 		{
 			"answer": "Doesn't Exist.",
 			"score": 1
-		},
-		{
-			"answer": "None of these answers reflect my point of view",
-			"score": 0
 		}
 	]
 },{
@@ -120,11 +100,7 @@ var questions = [{
 		},{
 				"answer": "shows a natural and expected pattern of warming and cooling.",
 				"score": 1
-			},
-		{
-			"answer": "None of these answers reflect my point of view",
-			"score": 0
-		}
+			}
 	]
 },{
 	"question": "The right to determine and express one's own gender identity:",
@@ -140,10 +116,6 @@ var questions = [{
 		{
 			"answer": "is unnatural and wrong",
 			"score": 1
-		},
-		{
-			"answer": "None of these answers reflect my point of view",
-			"score": 0
 		}
 	]
 },{
@@ -160,10 +132,6 @@ var questions = [{
 		{
 			"answer": "the American Dream of social mobility is a fallacy.",
 			"score": 3
-		},
-		{
-			"answer": "None of these answers reflect my point of view",
-			"score": 0
 		}
 	]
 },{
@@ -180,10 +148,6 @@ var questions = [{
 		{
 			"answer": "serve a purpose, but are often corrupt.",
 			"score": 2
-		},
-		{
-			"answer": "None of these answers reflect my point of view",
-			"score": 0
 		}
 	]
 },{
@@ -200,10 +164,6 @@ var questions = [{
 		{
 			"answer": "should be available to individuals, but only after extensive background checks.",
 			"score": 2
-		},
-		{
-			"answer": "None of these answers reflect my point of view",
-			"score": 0
 		}
 	]
 }];
