@@ -1,11 +1,12 @@
 $(document).ready(function() {
   var id = 0;
-  var Friend = function(name, photo, scores, proximity) {
+  var Friend = function(name, photo, scores, proximity, id, contact) {
     this.name = name;
     this.photo = photo;
     this.scores = scores;
     this.proximity = proximity;
     this.id = id;
+    this.contact = contact;
     if (!(this instanceof Friend)) {
       return new Friend(name, photo, scores);
     }
@@ -19,21 +20,26 @@ $(document).ready(function() {
 
     var name = document.getElementById('name').value;
     var photo = document.getElementById('photo').value;
+    var contact = document.getElementById('contact').value;
     var fieldsets = document.getElementsByTagName('fieldset');
     var length = fieldsets.length + 1;
 
     function storeScores() {
       var scores = [];
-      for (let i = 1; i < length; i++) {
-        //confirm that all fields are completed
-        if (document.querySelector(`input[name = "answer${i}"]:checked`) != null) {
-          //store scores in array
-          var score = document.querySelector(`input[name = "answer${i}"]:checked`).value;
-          scores.push(score);
-        } else {
-          alert("please complete all questions on the survey")
-          break;
+      if (document.getElementById('name').value != "" && document.getElementById('photo').value != "" && document.getElementById('contact').value != ""){
+        for (let i = 1; i < length; i++) {
+          //confirm that all fields are completed
+          if (document.querySelector(`input[name = "answer${i}"]:checked`) != null) {
+            //store scores in array
+            var score = document.querySelector(`input[name = "answer${i}"]:checked`).value;
+            scores.push(score);
+          } else {
+            alert("please complete all questions on the survey")
+            break;
+          }
         }
+      }else{
+        alert("make sure you've provided a name, photo, and way to contact you.")
       }
       return scores;
     }
@@ -54,7 +60,8 @@ $(document).ready(function() {
     }
 
     if (storeScores().length === 10) {
-      newUser = new Friend(name, photo, storeScores(), storeProximity(), id);
+      newUser = new Friend(name, photo, storeScores(), storeProximity(), id, contact);
+      console.log(newUser);
       id++;
     }
 
@@ -74,17 +81,22 @@ $(document).ready(function() {
     };
 
     function append(data) {
+      console.log(data)
       $('#friend').empty();
       $('#friend-photo').empty();
+      $('#friend-contact').empty();
       console.log(data);
       var h2 = document.createElement('h2');
       var pic = document.createElement('img');
+      var contact = document.createElement('p');
       pic.setAttribute('src', data.photo);
       pic.setAttribute('class', "responsive-img circle z-depth-5");
       var results = document.createElement('p');
       h2.innerHTML = `Your Best Friend is: ${data.name}`;
+      contact.innerHTML = `You can contact ${data.name} using ${data.contact}`;
       document.getElementById('friend').appendChild(h2);
       document.getElementById('friend-photo').appendChild(pic);
+      document.getElementById('friend-contact').appendChild(contact);
       console.log('appending' + data.name);
     };
 

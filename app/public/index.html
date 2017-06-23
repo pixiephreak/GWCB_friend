@@ -37,26 +37,31 @@
 	<div class="input-field">
 		<form>
 		<i class="material-icons prefix" aria-hidden="true">account_circle</i>
-		<input type="text" name="name" placeholder="Name: (Required)" id="name" class="validate" aria-required="true">
+		<input type="text" name="name" placeholder="name: (required)" id="name" class="validate" aria-required="true">
 	</div>
 	<div class="input-field">
 		<i class="material-icons prefix " aria-hidden="true">perm_media</i>
-		<input type="text" name="photo" placeholder="link to a photo (optional)" id="photo" class="validate" aria-required="true">
+		<input type="text" name="photo" placeholder="link to a photo: (required)" id="photo" class="validate" aria-required="true">
+	</div>
+	<div class="input-field">
+		<i class="material-icons prefix " aria-hidden="true">message</i>
+		<input type="text" name="contact" placeholder="any way your friend can get in touch:" id="contact" class="validate" aria-required="true">
 	</div>
 	</form>
 </div>
 	<div id='survey'>
+	</div>
 	<div id="results">
 		<div id="friend"></div>
 		<div id="friend-photo"></div>
-	</div>
+		<div id="friend-contact"></div>
 	</div>
 	<div class="col s12">
 		<!-- TODO animate transiiton -->
 		<button type="submit" class="btn btn-primary submit #66bb6a green lighten-1 waves-green" onclick="Materialize.fadeInImage('.responsive-img')" id="submit">Submit</button>
 	</div>
 	<div class="col s12">
-		<footer class="row card-panel #fafafa grey lighten-5 z-depth-1" id="footer">Visit the API for this project <a href="api/friends">here</a> or see the <a href="https://github.com/pixiephreak/GWCB_friend">source code.</a></footer>
+		<footer class="row card-panel #fafafa grey lighten-5 z-depth-1" id="footer">Visit the <a href="api/friends">API</a> for this project or see the <a href="https://github.com/pixiephreak/GWCB_friend">source code.</a></footer>
 	</div>
 </body>
 <script type="text/javascript">

@@ -10,6 +10,7 @@ var findProximity = function(arr,scores, evaluation){
   function update(){
     bestMatch.name = arr[i].name;
     bestMatch.photo = arr[i].photo;
+    bestMatch.contact = arr[i].contact;
     bestMatch.friendDifference = totalDifference;
   }
 
@@ -64,7 +65,6 @@ module.exports = function(app) {
     var userScores = userData.scores;
     var proximity = userData.proximity;
     var totalDifference = 0;
-
       findProximity(friends, userScores, proximity);
       friends.push(userData);
       res.json(bestMatch);
